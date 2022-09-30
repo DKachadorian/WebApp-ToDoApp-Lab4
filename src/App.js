@@ -1,6 +1,6 @@
 import UserBar from "./user/UserBar";
-import ToDoList from "./post/ToDoList";
-import CreateToDo from "./post/CreateToDo";
+import ToDoList from "./todo/ToDoList";
+import CreateToDo from "./todo/CreateToDo";
 import { useState } from "react";
 
 function App() {
