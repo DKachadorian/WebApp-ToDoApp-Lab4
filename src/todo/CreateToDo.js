@@ -35,7 +35,7 @@ export default function CreateToDo({ user, toDos, setToDos }) {
           name="create-title"
           id="create-title"
           value={title}
-          onChange={(event) => setTitle(event.target.value)}
+          onChange={(e) => setTitle(e.target.value)}
           required
         />
       </div>
@@ -53,22 +53,18 @@ export default function CreateToDo({ user, toDos, setToDos }) {
         <label htmlFor="complete">Complete:</label>
         <input
           type="checkbox"
-          value={complete}
-          onChange={(e) => setComplete(e.target.value)}
-          required
+          checked={complete}
+          onChange={(e) => setComplete(Date.now())}
         />
       </div>
 
-      <textarea
-        value={content}
-        onChange={(event) => setContent(event.target.value)}
-      />
+      <textarea value={content} onChange={(e) => setContent(e.target.value)} />
 
       <input
         type="submit"
         value="Create"
         onChange={(event) =>
-          setDateCreated(Date.now(), (event) => setDateCompleted(Date.now()))
+          setDateCreated(Date.now(), (e) => setDateCompleted(Date.now()))
         }
       />
     </form>

@@ -3,19 +3,19 @@ export default function ToDos({
   description,
   content,
   author,
-  dateCreated,
   complete,
+  dateCreated,
   dateCompleted,
 }) {
   return (
     <div>
-      <h3> Title : {title}</h3>
-      <div> Description : {description}</div>
-      <div> Date Created : {dateCreated}</div>
-      <div> Completed : {complete}</div>
-      <div> Task that needs to get done : {content}</div>
-      <div> Date Completed : {dateCompleted}</div>
-      <div> Author : {author} </div>
+      <p> Title : {title}</p>
+      <p> Description : {description}</p>
+      <p> Date Created : {dateCreated}</p>
+      <p> Checked status : {complete ? "Yes" : "No"} </p>
+      <p> Completed : {dateCompleted}</p>
+      <p> Task that needs to get done : {content}</p>
+      <p> Author : {author} </p>
       <br />
     </div>
   );
