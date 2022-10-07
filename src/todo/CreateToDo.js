@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
-export default function CreateToDo({ user, toDos, setToDos }) {
+export default function CreateToDo({ user, toDos, dispatch }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [description, setDescription] = useState("");
@@ -12,17 +13,16 @@ export default function CreateToDo({ user, toDos, setToDos }) {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        const newToDo = {
+        dispatch({
+          type: "CREATE_TODO",
           title,
           content,
-          author: user,
           description,
           dateCreated,
           complete,
           dateCompleted,
-        };
-
-        setToDos([newToDo, ...toDos]);
+          id: uuidv4(),
+        });
       }}
     >
       <div>
