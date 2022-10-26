@@ -1,0 +1,70 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "portal",
+      "content": "Some content",
+      "author": "paul"
+    },
+    {
+      "title": "A new todo title that has been updated via a PATCH request",
+      "content": "Some new content",
+      "author": "paul",
+      "id": 3
+    },
+    {
+      "title": "sdaas",
+      "content": "asdsad",
+      "description": "asdsad",
+      "dateCreated": "Wed Oct 19 2022 11:35:53 GMT-0400 (Eastern Daylight Time)",
+      "complete": 1666193762733,
+      "dateCompleted": "Wed Oct 19 2022 11:35:53 GMT-0400 (Eastern Daylight Time)",
+      "author": "123",
+      "id": 4
+    },
+    {
+      "title": "sdaasasdas",
+      "content": "asdsadasdasd",
+      "description": "asdsadasdas",
+      "dateCreated": "Wed Oct 19 2022 11:35:53 GMT-0400 (Eastern Daylight Time)",
+      "complete": 1666193762733,
+      "dateCompleted": "Wed Oct 19 2022 11:35:53 GMT-0400 (Eastern Daylight Time)",
+      "author": "123",
+      "id": 5
+    },
+    {
+      "title": "This is a title",
+      "content": "This is a ToDo",
+      "description": "This is a description",
+      "dateCreated": "Wed Oct 19 2022 13:10:48 GMT-0400 (Eastern Daylight Time)",
+      "complete": 1666199460404,
+      "dateCompleted": "Wed Oct 19 2022 13:10:48 GMT-0400 (Eastern Daylight Time)",
+      "author": "Darrin Kachadorian",
+      "id": 6
+    },
+    {
+      "title": "Another sample title",
+      "content": "Another to do on the list!",
+      "description": "Another sample description",
+      "dateCreated": "Wed Oct 19 2022 13:14:01 GMT-0400 (Eastern Daylight Time)",
+      "complete": 1666199661099,
+      "dateCompleted": "Wed Oct 19 2022 13:14:01 GMT-0400 (Eastern Daylight Time)",
+      "author": "Darrin Kachadorian",
+      "id": 7
+    }
+  ],
+  "users": [
+    {
+      "email": "olivier@mail.com",
+      "password": "$2a$10$9ZJQ6jdIVx4Y9W2DmXpwM.LL3fvCW68yM77rwRzpE6EpxYuX9KwRy",
+      "id": 1
+    }
+  ],
+  "themes": [
+    {
+      "id": 1,
+      "primaryColor": "deepskyblue",
+      "secondaryColor": "coral"
+    }
+  ]
+}

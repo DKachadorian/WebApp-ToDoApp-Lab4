@@ -23,28 +23,26 @@ function toDoReducer(state, action) {
         dateCompleted: action.dateCompleted,
       };
       return [newToDo, ...state];
+
+    // add the toggle todo component
+    case "TOGGLE_TODO":
+      return state.map((item) => {
+        if (item.id === action.id) {
+          return {
+            complete: item.complete,
+            dateCompleted: item.dateCompleted,
+          };
+        } else {
+          return item;
+        }
+      });
+
+    // add the delete todo component
+    case "DELETE_TODO":
+      return state.filter((item) => item.id !== action.id);
+
     default:
       return state;
-  }
-}
-
-// add new reducer code here -- such as TOGGLE_TODO --  When user clicks the checkbox
-function toggleToDoReducer(state, action) {
-  switch (action.type) {
-    case "TOGGLE":
-      return state.filter((state) => state.id !== action.id);
-    default:
-      throw new Error();
-  }
-}
-
-// add new reducer code here --- such as DELETE_TODO -- iterates over all the ToDos held in state to identify a todo for removal from state
-function deleteToDoReducer(state, action) {
-  switch (action.type) {
-    case "DELETE_TODO":
-      return state.filter((state) => state.id !== action.id);
-    default:
-      throw new Error();
   }
 }
 
@@ -52,7 +50,5 @@ export default function appReducer(state, action) {
   return {
     user: userReducer(state.user, action),
     toDos: toDoReducer(state.toDos, action),
-    //toggle: toggleToDoReducer(state.toggle, action),
-    // delete: deleteToDoReducer(state.delete, action),
   };
 }
