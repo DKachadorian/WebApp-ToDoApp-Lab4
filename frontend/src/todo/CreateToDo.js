@@ -11,7 +11,7 @@ export default function CreateToDo() {
   const [dateCreated, setDateCreated] = useState(Date());
   const [complete, setComplete] = useState(false);
   const [dateCompleted, setDateCompleted] = useState(Date());
-  //const [error, setError] = useState(false);
+  const [error, setError] = useState(false);
 
   const { state, dispatch } = useContext(StateContext);
   const { user } = state;
@@ -39,14 +39,28 @@ export default function CreateToDo() {
       },
     })
   );
-  /*
+
   useEffect(() => {
-    if (todo?.data?.error) {
+    if (post?.error) {
       setError(true);
       //alert(todo.data.error.code);
     }
-  }, [todo]);
-*/
+  }, [post]);
+
+  if (post?.isLoading === false && post?.data) {
+    dispatch({
+      type: "CREATE_TODO",
+      title: post.data.title,
+      content: post.data.content,
+      author: post.data.author,
+      complete: post.data.complete,
+      dateCompleted: post.data.dateCompleted,
+      dateCreated: post.data.dateCreated,
+      id: post.data.id,
+    });
+  } else {
+    return [post];
+  }
 
   return (
     <form
@@ -60,16 +74,6 @@ export default function CreateToDo() {
           complete,
           dateCompleted,
           author: user,
-        });
-        dispatch({
-          type: "CREATE_TODO",
-          title,
-          content,
-          description,
-          dateCreated,
-          complete,
-          dateCompleted,
-          id: uuidv4(),
         });
       }}
     >
