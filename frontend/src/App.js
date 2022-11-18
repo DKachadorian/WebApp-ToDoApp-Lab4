@@ -32,12 +32,15 @@ function App() {
   const [toDos, getToDos] = useResource(() => ({
     url: "/todos",
     method: "get",
+    headers: { Authorization: `${state.user.access_token}` },
   }));
 
-  useEffect(getToDos, []);
+  useEffect(() => {
+    getToDos();
+  }, [state?.user?.access_token]);
 
   useEffect(() => {
-    if (toDos && toDos.data) {
+    if (toDos && toDos.isLoading === false && toDos.data) {
       dispatch({ type: "FETCH_TODOS", todos: toDos.data.reverse() });
     }
   }, [toDos]);

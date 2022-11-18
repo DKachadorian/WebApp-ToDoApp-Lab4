@@ -8,7 +8,7 @@ export default function Login({ dispatch }) {
   const [password, setPassword] = useState("");
 
   const [user, login] = useResource((username, password) => ({
-    url: "/login",
+    url: "auth/login",
     method: "post",
     data: { username, password },
   }));
@@ -18,11 +18,16 @@ export default function Login({ dispatch }) {
   }
 
   useEffect(() => {
-    if (user) {
-      if (user?.data?.user) {
-        setLoginFailed(false);
-      } else {
+    if (user && user.isLoading === false && (user.data || user.error)) {
+      if (user.error) {
         setLoginFailed(true);
+      } else {
+        setLoginFailed(false);
+        dispatch({
+          type: "LOGIN",
+          username: "User",
+          access_token: user.data.access_token,
+        });
       }
     }
   }, [user]);

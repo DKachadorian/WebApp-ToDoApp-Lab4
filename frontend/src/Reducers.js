@@ -1,10 +1,14 @@
 function userReducer(state, action) {
   switch (action.type) {
     case "LOGIN":
+      return {
+        username: action.username,
+        access_token: action.access_token,
+      };
     case "REGISTER":
       return action.username;
     case "LOGOUT":
-      return "";
+      return null;
     default:
       return state;
   }
@@ -23,6 +27,12 @@ function toDoReducer(state, action) {
         dateCompleted: action.dateCompleted,
       };
       return [newToDo, ...state];
+
+    case "FETCH_TODOS":
+      return action.toDos;
+
+    case "CLEAR_TODOS":
+      return [];
 
     // add the toggle todo component
     case "TOGGLE_TODO":
