@@ -3,8 +3,8 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const Post = require("../models/Post");
 
-/*const privateKey = process.env.JWT_PRIVATE_KEY;*/
-const privateKey = "";
+const privateKey = process.env.JWT_PRIVATE_KEY;
+/*const privateKey = "";*/
 
 router.use(function (req, res, next) {
   if (req.header("Authorization")) {
