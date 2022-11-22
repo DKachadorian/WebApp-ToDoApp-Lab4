@@ -4,8 +4,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
-/*const privateKey = process.env.JWT_PRIVATE_KEY;*/
-const privateKey = "";
+const privateKey = process.env.JWT_PRIVATE_KEY;
+/*const privateKey = "";*/
 
 const saltRounds = 10;
 
